@@ -10,7 +10,7 @@ class MicropostsController < ApplicationController
       render 'static_pages/home'
     end
   
-    def destroy
+   def destroy
     @micropost = current_user.microposts.find_by(id: params[:id])
     return redirect_to root_url if @micropost.nil?
     @micropost.destroy
@@ -18,6 +18,7 @@ class MicropostsController < ApplicationController
     redirect_to request.referrer || root_url
    end
   end
+ 
   
   private
   def micropost_params
