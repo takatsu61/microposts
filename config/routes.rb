@@ -5,8 +5,15 @@ Rails.application.routes.draw do
   post   'login' , to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
   get    'edit',   to: 'users#edit'
+  
+  
+  resources :users do
+    member do
+      get :followings, :followers
+    end
+  end
 
-  resources :users
+# resources :users
   resources :sessions, only: [:new, :create, :destroy]
   resources :microposts
   resources :relationships, only: [:create, :destroy]

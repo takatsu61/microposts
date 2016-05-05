@@ -1,0 +1,9 @@
+<h1>フォロー</h1>
+<div class="row">
+  <div class="col-md-8">
+    <% @fusers.each do |fuser| %>
+      <%= link_to gravatar_for(fuser), fuser %>
+    <% end %>
+  </div>
+</div>
+
